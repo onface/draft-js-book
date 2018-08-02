@@ -1,0 +1,7 @@
+/*
+    The suffix for this file is ".css" but he will be less compiled.
+*/
+@prefix: face-name;
+.@{prefix} {
+    color: red;
+}
