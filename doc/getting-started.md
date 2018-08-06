@@ -59,3 +59,32 @@ class MyInput extends React.Component {
 ```
 
 除了用户输入外顶层组件可以通过修改 `state.value` 控制组件显示内容。
+
+
+## 控制富文本
+
+React 富文本场景下回遇到2个问题。
+
+1. 纯文本字符串不能表达富文本编辑器的复杂状态
+2. 对于 ContentEditable 这样的元素不存在 `onChange` 事件。
+
+因此 state 是一个不可变的 `EditorState` 对象，由组件 `Editor` 内部触发 `onChange` 向顶层 API 提供 state。
+
+`EdtiorState` 对象是编辑器当前状态的快照，包含内容、光标位置，和撤销/重做历史。 编辑器中的所有的内容修改和光标选中都会创建新的 `EditorState` 状态. Note that this remains efficient due to data persistence across immutable objects.
+
+
+
+````code
+{
+    title: '控制富文本',
+    desc: '`editorState` `onChange`',
+    html: '<div id="getting-started-simple-editor" style="border:1px solid #ddd;margin:1em;" ></div>',
+    source: './simple.demo.js',
+    side: true,
+    open: true
+}
+````
+
+## 富文本样式
+
+现在我们已经制定了基础 API 的使用方式，接下来让编辑器支持富文本样式。
