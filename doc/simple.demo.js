@@ -10,12 +10,12 @@ class MyEditor extends React.Component {
   }
   render() {
     return (
-      <Editor 
-        editorState={this.state.editorState} 
-        onChange={this.onChange} 
+      <Editor
+        editorState={this.state.editorState}
+        onChange={this.onChange}
       />
-    );
+    )
   }
 }
-const rootElement = document.getElementById("getting-started-simple-editor");
-ReactDOM.render(<MyEditor />, rootElement);
+const rootElement = document.getElementById("getting-started-simple-editor")
+ReactDOM.render(<MyEditor />, rootElement)

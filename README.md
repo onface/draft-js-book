@@ -11,7 +11,7 @@
     <h2 class="face-one-intro-desc">
         基于 React 的富文本编辑器框架
     </h2>
-    <!-- MARKRUN-HTML
+    <!--
         <div class="face-one-readmedemo">
             <div class="face-one-readmedemo-node">
                 <div id="simple-demo" class="face-one-readmedemo-node-render"></div>
@@ -27,7 +27,7 @@
     <div class="face-one-intro-tool">
         <a href="https://onface.github.io/draft-js-book" class="face-one-intro-btn face-one-intro-btn--primary mr-online-hide" >在线文档</a>
         <!-- MARKRUN-HTML
-            <a href="./doc/intro.md" class="face-one-intro-btn face-one-intro-btn--primary">指引</a>
+            <a href="./doc/getting-started.md" class="face-one-intro-btn face-one-intro-btn--primary">指引</a>
             <a href="http://github.com/onface/draft-js-book" class="face-one-intro-btn">GITHUB</a>
         -->
     </div>
