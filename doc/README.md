@@ -11,3 +11,16 @@
     side: true
 }
 ````
+
+
+## 渲染链接
+
+````code
+{
+    title: 'renderLink',
+    desc: '',
+    html: '<div id="renderLink-demo" style="border:1px solid #ddd;margin:1em;" ></div>',
+    source: './renderLink.demo.js',
+    side: true
+}
+````

@@ -1,20 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {
-    Editor,
-    EditorState,
-    ContentState,
-    RichUtils,
-    convertFromHTML
-} from "draft-js";
+import Draft from "draft-js";
 
 class MyEditor extends React.Component {
     constructor(props) {
         super(props);
-        let blocksFromHTML = convertFromHTML(props.html)
+        let blocksFromHTML = Draft.convertFromHTML(props.html)
         this.state = {
-            editorState: EditorState.createWithContent(
-                ContentState.createFromBlockArray(
+            editorState: Draft.EditorState.createWithContent(
+                Draft.ContentState.createFromBlockArray(
                   blocksFromHTML.contentBlocks,
                   blocksFromHTML.entityMap,
                 )
@@ -22,7 +16,7 @@ class MyEditor extends React.Component {
         }
     }
     handleKeyCommand = (command, editorState) => {
-        const newState = RichUtils.handleKeyCommand(editorState, command)
+        const newState = Draft.RichUtils.handleKeyCommand(editorState, command)
         if (newState) {
             this.onChange(newState);
             return 'handled'
@@ -34,7 +28,7 @@ class MyEditor extends React.Component {
     }
     render() {
         return (
-            <Editor
+            <Draft.Editor
                 editorState={this.state.editorState}
                 onChange={this.onChange}
                 handleKeyCommand={this.handleKeyCommand}
