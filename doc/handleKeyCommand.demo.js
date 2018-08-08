@@ -1,12 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Editor, EditorState,RichUtils } from "draft-js";
+import {
+    Editor,
+    EditorState,
+    ContentState,
+    RichUtils,
+    convertFromHTML
+} from "draft-js";
 
 class MyEditor extends React.Component {
     constructor(props) {
         super(props);
+        let blocksFromHTML = convertFromHTML(props.html)
         this.state = {
-            editorState: EditorState.createEmpty()
+            editorState: EditorState.createWithContent(
+                ContentState.createFromBlockArray(
+                  blocksFromHTML.contentBlocks,
+                  blocksFromHTML.entityMap,
+                )
+            )
         }
     }
     handleKeyCommand = (command, editorState) => {
@@ -31,4 +43,4 @@ class MyEditor extends React.Component {
     }
 }
 const rootElement = document.getElementById("handleKeyCommand-demo");
-ReactDOM.render(<MyEditor />, rootElement);
+ReactDOM.render(<MyEditor html="abcdefg" />, rootElement);

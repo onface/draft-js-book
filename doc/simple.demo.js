@@ -1,12 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Editor, EditorState } from "draft-js";
+import {
+    Editor,
+    EditorState,
+    ContentState,
+    RichUtils,
+    convertFromHTML
+} from "draft-js";
 
 class MyEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { editorState: EditorState.createEmpty() };
-    this.onChange = editorState => this.setState({ editorState });
+    let blocksFromHTML = convertFromHTML(props.html)
+    this.state = {
+        editorState: EditorState.createWithContent(
+            ContentState.createFromBlockArray(
+              blocksFromHTML.contentBlocks,
+              blocksFromHTML.entityMap,
+            )
+        )
+    }
+  }
+  onChange = (editorState) => {
+      this.setState({ editorState })
   }
   render() {
     return (
@@ -18,4 +34,4 @@ class MyEditor extends React.Component {
   }
 }
 const rootElement = document.getElementById("getting-started-simple-editor")
-ReactDOM.render(<MyEditor />, rootElement)
+ReactDOM.render(<MyEditor html="abcdef" />, rootElement)
