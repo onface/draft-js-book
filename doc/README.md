@@ -24,3 +24,24 @@
     side: true
 }
 ````
+
+## 编辑链接
+
+````css
+.edit-link {
+    display: none;
+}
+a:hover .edit-link{
+    display: inline;
+}
+````
+
+````code
+{
+    title: 'editLink',
+    desc: '',
+    html: '<div id="editLink-demo" style="border:1px solid #ddd;margin:1em;" ></div>',
+    source: './editLink.demo.js',
+    side: true
+}
+````

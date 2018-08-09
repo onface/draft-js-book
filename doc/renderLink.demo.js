@@ -39,17 +39,17 @@ class MyEditor extends React.Component {
         )
     }
   }
-  onChange = (editorState) => {
+  emitChange = (editorState) => {
       this.setState({ editorState })
   }
   render() {
     return (
       <Draft.Editor
         editorState={this.state.editorState}
-        onChange={this.onChange}
+        onChange={this.emitChange}
       />
     )
   }
 }
 const rootElement = document.getElementById("renderLink-demo")
-ReactDOM.render(<MyEditor html={`link: <a target="_blank" style="color:red;" href="https://onface.live">onface</a>`} />, rootElement)
+ReactDOM.render(<MyEditor html={`link: <a target="_blank" href="https://onface.live">onface</a>`} />, rootElement)

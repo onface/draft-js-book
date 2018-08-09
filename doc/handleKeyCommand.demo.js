@@ -18,19 +18,19 @@ class MyEditor extends React.Component {
     handleKeyCommand = (command, editorState) => {
         const newState = Draft.RichUtils.handleKeyCommand(editorState, command)
         if (newState) {
-            this.onChange(newState);
+            this.emitChange(newState);
             return 'handled'
         }
         return 'not-handled'
     }
-    onChange = (editorState) => {
+    emitChange = (editorState) => {
         this.setState({ editorState })
     }
     render() {
         return (
             <Draft.Editor
                 editorState={this.state.editorState}
-                onChange={this.onChange}
+                onChange={this.emitChange}
                 handleKeyCommand={this.handleKeyCommand}
             />
         )

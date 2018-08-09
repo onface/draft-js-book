@@ -20,6 +20,8 @@
     "$repository": "draft-js-book",
     "dependencies": {
         "draft-js": "0.10.5",
+        "immutable": "^3.8.2",
+        "invariant": "^2.2.4",
         "prop-types": "^15.6.0",
         "react-spread-props": "^0.1.1",
         "util.react": "^1.6.0"
