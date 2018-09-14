@@ -45,3 +45,34 @@ a:hover .edit-link{
     side: true
 }
 ````
+
+## mention
+
+
+````css
+.mention {
+    z-index: 99;
+    width: 800%;
+    position: absolute;
+    z-index: 99;
+    top: 100%;
+    left:0;
+    background-color:  white;
+    border:1px solid #eee;
+    border-radius: .2em;
+}
+.mention-item:hover {
+    cursor: pointer;
+    color:orange
+}
+````
+
+````code
+{
+    title: 'mention',
+    desc: '',
+    html: '<div id="mention-demo" style="border:1px solid #ddd;margin:1em;" ></div>',
+    source: './mention.demo.js',
+    side: true
+}
+````

@@ -46,11 +46,11 @@ function getDecorator (own) {
                         className="edit-link"
                         style={{fontSize: '0.8em', color: 'orange', cursor: 'pointer'}}
                         onClick={(e) => {
-                            console.log()
                             e.preventDefault()
                             let text = prompt("文字内容", props.decoratedText)
                             let link = prompt("链接地址", data.url)
                             if (text && link) {
+                                // text
                                 let newContentState = Draft.Modifier.replaceText(
                                   props.contentState,
                                   getEntitySelection(props.contentState, props.entityKey),
@@ -59,6 +59,7 @@ function getDecorator (own) {
                                   props.entityKey
                                 )
                                 const newState = Draft.EditorState.push(own.state.editorState, newContentState, 'insert-characters')
+                                // link
                                 let contentState = newState.getCurrentContent()
                                 newContentState = contentState.mergeEntityData(props.entityKey, { url: link, href: link })
                                 // 一定要有 getDecorator
